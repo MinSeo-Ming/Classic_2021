@@ -1,0 +1,11 @@
+.images{
+  float: left;
+}
+.image_container{
+  width: 80%;
+  margin: auto;
+}
+.image_a_tag{
+  color :black;
+  text-decoration: none;
+}
