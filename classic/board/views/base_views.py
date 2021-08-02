@@ -11,7 +11,7 @@ def index(request):
     page = request.GET.get('page', '1')  # 페이지
     kw = request.GET.get('kw', '')  # 검색어
 
-    # 정렬하기 (수정중) (최신순으로 모두 반영될때가 있어 꼭 필요한 기능으로 판단되었을 경우 develop 하는 방향으로 가는게 어떨까요?)
+    # 정렬하기
     so = request.GET.get('so', 'recent') # 정렬 기준
     if so == 'recommend':  # 추천순
         question_list = Question.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
@@ -20,8 +20,7 @@ def index(request):
     else:                  # 최신순
         question_list = Question.objects.order_by('-create_date')
 
-    # 조회(검색)
-    question_list = Question.objects.order_by('-create_date')
+    # 조회(검색)  # 중첩된 구문 있는지 잘 살펴보기
     if kw:
         question_list = question_list.filter(
             Q(subject__icontains=kw) |  # 제목 검색

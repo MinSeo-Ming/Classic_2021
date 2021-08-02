@@ -2,3 +2,54 @@
   border-top: dotted 1px #add;
   font-size:0.7em;
 }
+
+a:link { 
+  color : #412975;
+}
+a:visited {
+  color : #0a1119;
+  font-weight: 200;
+}
+a:hover {
+  color : #0048aa;
+}
+a:active {
+  color : #007dd9;
+}
+a {
+  text-decoration-line: none;
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+span.classic {
+color : #412975;
+font-size: 15mm;
+text-align: center;
+}
+
+.listbtn { 
+  cursor: pointer;
+  text-decoration-line: none;
+  width: 177px;
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: 13px;
+  margin-right: 13px;
+  line-height: 1.25;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px; 
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px; 
+  color:white;
+  border: 3px solid #a1c1eb;
+  background-color: #e0ebf9;
+}
+button:hover{
+  text-decoration-line: none;
+  color: #fff;
+  background-color: #a1c1eb;
+}

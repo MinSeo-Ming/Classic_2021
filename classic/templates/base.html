@@ -11,8 +11,8 @@
     <!-- Bootstrap JS -->
     <script defer src="{% static 'bootstrap.min.js' %}"></script>
     <title>{{title_name}}</title> <!--title-->
-    {%block css%}
-    {%endblock css%}
+    {% block css %}
+    {% endblock css %}
 </head>
 <body>
     <!-- 네비게이션바 -->
@@ -29,4 +29,7 @@
     {% endblock %}
     <!-- 자바스크립트 End -->
 </body>
+<footer>
+    {% include  "footer.html" %}
+</footer>
 </html>

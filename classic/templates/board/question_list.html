@@ -49,9 +49,15 @@
         <!-- 이전페이지 -->
         {% if question_list.has_previous %}
         <li class="page-item">
+            <button type="list" class="listbtn"><a href="?page=1">첫번째페이지</button></a>
+        </li>
+        <li class="page-item">
             <a class="page-link" data-page="{{ question_list.previous_page_number }}" href="#">이전</a><!-- checked -->
         </li>
         {% else %}
+        <li class="page-item disabled">
+            <button type="list" class="listbtn"><a href="?page=1">첫번째페이지</button></a>
+        </li>
         <li class="page-item disabled">
             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
         </li>
@@ -73,11 +79,17 @@
         <!-- 다음페이지 -->
         {% if question_list.has_next %}
         <li class="page-item">
-            <a class="page-link" data-page="{{ question_list.next_page_number }}" href="#">다음</a><!-- checked -->
+            <a class="page-link" data-page="{{ question_list.next_page_number }}" href="#">다음</a> <!-- checked -->
+        </li>
+        <li class="page-item">
+            <button type="list" class="listbtn"><a href="?page={{ question_list.paginator.num_pages }}">마지막페이지</button></a>&nbsp;&nbsp;
         </li>
         {% else %}
         <li class="page-item disabled">
             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        <li class="page-item disabled">
+            <button type="list" class="listbtn"><a href="?page={{ question_list.paginator.num_pages }}">마지막페이지</button></a>&nbsp;&nbsp;
         </li>
         {% endif %}
     </ul>
@@ -86,7 +98,7 @@
 </div>
     <div class="row justify-content-center my-3">
     <!-- 검색 기능 추가하기 : 하단 중앙에 두고 싶어서 여기에 검색창과 form element 추가 -->
-    <!-- (수정중) 검색 정렬 기능 : 최신순, 추천순, 인기순 -> 필요시 develop해서 추가하는것은 어떨까요?
+    <!-- 검색 정렬 기능 : 최신순, 추천순, 인기순 -->
         <div class="col-2">
             <select class="form-control so">
                 <option value="recent" {% if so == 'recent' %}selected{% endif %}>최신순</option>
@@ -94,7 +106,6 @@
                 <option value="popular" {% if so == 'popular' %}selected{% endif %}>인기순</option>
             </select>
         </div>
-    -->
         <!-- 검색 기능 -->
         <div class="col-4 input-group">
             <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
