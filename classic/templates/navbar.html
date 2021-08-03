@@ -7,12 +7,12 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-  <!-- (수정중) 로그인 | 회원가입 : 회원가입 문구가 중간 정렬이 -->
+  <!-- 로그인 | 회원가입 -->
   <div class="navbar-collapse w-100 order-3 dual-collapse2 text-right" id="navbarNav">
     <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
         <li class="nav-item">
             {% if user.is_authenticated %}
-            <p style="text-align:right;"><a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }}<br>(로그아웃)</a></p>
+            <p style="text-align:center;"><a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }}<br>(로그아웃)</a></p>
             {% else %}
             <p style="text-align:right;"><a class="nav-link" href="{% url 'common:login' %}">로그인</a></p>
             {% endif %}
