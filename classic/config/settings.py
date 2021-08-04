@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'clothes.apps.ClothesConfig',
     'common.apps.CommonConfig',
     'board.apps.BoardConfig',
+    'weather.apps.WeatherConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
