@@ -19,7 +19,7 @@ from django.conf import settings
 
 from django.conf.urls.static import static
 from clothes.views import filter
-=======
+
 # from mysite.views import HomeView
 from board.views import base_views
 
