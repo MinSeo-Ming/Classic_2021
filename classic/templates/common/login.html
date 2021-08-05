@@ -1,0 +1,33 @@
+{% extends "base.html" %} <!-- login 은 모두 공통되어서 root templates에 -->
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        <div class="col-4">
+            <h4>로그인</h4>
+        </div>
+        <div class="col-8 text-right">
+            <span>또는 <a href="{% url 'common:signup' %}"><strong>계정을 만드세요.</strong></a></span>
+        </div>
+    </div>
+    <form method="post" class="post-form" action="{% url 'common:login' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"> <!-- 로그인 성공 후 이동되는 url -->
+        {% include "form_errors.html" %}
+        <div class="form-group">
+            <label for="username">사용자이름</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.value|default_if_none:'' }}">
+        </div>
+        <p>
+        <button type="submit" class="btn btn-cyan">로그인</button>
+        <!-- 추가 및 수정이 필요합니다 : 아이디/비밀번호 찾기 href 추가 등등 -->
+        <button type="button" class="btn btn-pink">아이디/비밀번호 찾기</button></br>
+        </p>
+    </form>
+</div>
+{% endblock %}
