@@ -1,8 +1,27 @@
 from django.urls import path
 
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+# """
+from django.contrib import admin
+from django.urls import path
+
+=======
 from .views import base_views, question_views, answer_views, comment_views, vote_views
 
 app_name = 'board'
+
 
 # views 항목이 많아서 views를 다음과 같이 구별해놓았습니다.
 urlpatterns = [
@@ -29,3 +48,4 @@ urlpatterns = [
     path('comment/delete/answer/<int:comment_id>/', comment_views.comment_delete_answer, name='comment_delete_answer'),
     path('vote/question/<int:question_id>/', vote_views.vote_question, name='vote_question'),
 ]
+
