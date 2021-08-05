@@ -15,11 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+
+from django.conf.urls.static import static
+from clothes.views import filter
+
+# from mysite.views import HomeView
+from board.views import base_views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', include('board.urls')),
     path('clothes/', include('clothes.urls')),
     path('common/', include('common.urls')),
+    path('', base_views.index, name='index'),
+    #path('', HomeView.as_view(), name='home')    #추후에 메인 화면 html과 연동
+    #path('',filter,name='home')
     #path('',views.~View.as_view(),name='home')    #추후에 메인 화면 html과 연동
-]
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,125 @@
+.comment {
+  border-top: dotted 1px #add;
+  font-size:0.7em;
+}
+
+a:link { 
+  text-decoration-line: none;
+  color : #412975;
+}
+a:visited {
+  text-decoration-line: none;
+  color : #0a1119;
+  font-weight: 200;
+}
+a:hover {
+  text-decoration-line: none;
+  color : #0048aa;
+}
+a:active {
+  text-decoration-line: none;
+  color : #007dd9;
+}
+a {
+  text-decoration-line: none;
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+span.classic {
+color : #412975;
+font-size: 15mm;
+text-align: center;
+}
+.listbtn { 
+  text-decoration: none;
+  cursor: pointer;
+  width: 177px;
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: 13px;
+  margin-right: 13px;
+  line-height: 1.25;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px; 
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px; 
+  color:white;
+  border: 2px solid #a1c1eb;
+  background-color: whitesmoke;
+}
+.listbtn:hover {
+  color: white;
+  background-color: #a1c1eb;
+}
+.btn-yellow {
+  color: black;
+  background-color: #ffd479;
+  border-color: #ffd479;
+  transition:all 0.1s, color 0.3;
+  cursor: pointer;
+}
+.btn-yellow:hover {
+  color: white;
+  background-color: #ffd479;
+  border-color: #ffd479;
+  box-shadow: 200px 0 0 0 rgba(255,219,121,0.77) inset;
+}
+/* bootstrap border-color check*/
+.btn-primary {
+  color : black;
+  border-color : #44789d;
+  background-color : #ffffff;
+  border: 2px solid;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  color: white;
+  background-color: #44789d;
+  border-color: #44789d;
+}
+.btn-danger {
+  color : black;
+  border-color : #9c5a8d;
+  background-color : #ffffff;
+  border: 2px solid
+}
+.btn-danger:hover {
+  color: white;
+  background-color: #9c5a8d;
+  border-color: #9c5a8d;
+}
+.btn-info {
+  border-color : #26445b;
+  background-color : #ffffff;
+  border: 2px solid
+}
+.btn-info:hover {
+  color: white;
+  background-color: #26445b;
+  border-color: #26445b;
+}
+.btn-cyan {
+  color : black;
+  border-color : #009dd9;
+  background-color : #ffffff;
+  border: 2px solid
+}
+.btn-cyan:hover {
+  color: white;
+  background-color: #009dd9;
+  border-color: #009dd9;
+}
+.btn-pink {
+  border-color: #de6c99;
+  background-color : #ffffff;
+  border: 2px solid
+}
+.btn-pink:hover {
+  color: white;
+  background-color: #de6c99;
+  border-color: #de6c99;
+}

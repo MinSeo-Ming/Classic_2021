@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- jQuery JS -->
-    <script defer src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script defer src="{% static 'jquery-3.4.1.min.js' %}"></script>
     <!-- Bootstrap JS -->
-    <script defer src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script defer src="{% static 'bootstrap.min.js' %}"></script>
     <title>{{title_name}}</title> <!--title-->
-    {%block css%}
-    {%endblock css%}
+    {% block css %}
+    {% endblock css %}
 </head>
 <body>
     <!-- 네비게이션바 -->
-    {% include  "navbar.html"%}
-    {%  block content %}
-    {% endblock %}
+    {% include  "navbar.html" %}
 
+    {%  block content %}
+    
+    
+    {% endblock %}
+    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+    <!-- jQuery JS -->
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <!-- 자바스크립트 Start -->
+    {% block script %}
+    {% endblock %}
+    <!-- 자바스크립트 End -->
 </body>
+<footer>
+    {% include  "footer.html" %}
+</footer>
 </html>

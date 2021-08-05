@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'clothes.apps.ClothesConfig',
+    'common.apps.CommonConfig',
+    'board.apps.BoardConfig',
+    'weather.apps.WeatherConfig',
+    'django_filters',
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,6 +131,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# 미디어 파일을 관리할 루트 media 디렉터리
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 각 media file에 대한 URL prefix
+MEDIA_URL = '/media/'
 
 # 로그인 성공후 이동하는 URL
 LOGIN_REDIRECT_URL = '/' #로그인 성공시 이동할 곳추가
