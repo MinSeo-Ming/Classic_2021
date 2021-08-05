@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .form import *
 from django.core.paginator import Paginator
 from django.utils import timezone
+from datetime import datetime
 from django.views import generic
 from django.urls import reverse
 import copy
@@ -57,9 +58,18 @@ def clothes_index(request):
 
     return render(request,'clothes/test_list.html',context)
 
+#삭제 수정이 필요함 아 만약 default이면 삭제 수정이 없게 해야함 => hidden으로 바꾸기
+
+
 def clothes_detail(request,clothes_id):
     clothes = get_object_or_404(Clothing,pk = clothes_id)
     return render(request,'clothes/test_detail.html',{"clothes":clothes})
 
 # class ClothesDetailView(generic.DetailView):
 #     model = Clothing
+
+def filter(request):
+    mon = int(datetime.now().month)
+    cloth_list = Clothing.objects.filter(month =mon)
+    print(cloth_list)
+    return render(request,'clothes/test_main.html',{'cloth_list':cloth_list})

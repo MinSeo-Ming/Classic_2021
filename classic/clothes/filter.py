@@ -1,11 +1,9 @@
-from .models import Clothing
+from .models import *
 from weather.models import *
-from django_filters import FilterSet
+from weather.models import *
 
-class ClothesFilter(FilterSet):
-    class Meta:
-        model = Clothing
-        fields =[]
+
+def filter_Mon():
 
 
 # 첫번째 전제 조건... 현재 월 & 현재 온도를 갖고 온다.
