@@ -30,8 +30,8 @@ urlpatterns = [
     path('board/', include('board.urls')),
     path('clothes/', include('clothes.urls')),
     path('common/', include('common.urls')),
-    path('', base_views.index, name='index'),
-    #path('', HomeView.as_view(), name='home')    #추후에 메인 화면 html과 연동
-    #path('',filter,name='home')
-    #path('',views.~View.as_view(),name='home')    #추후에 메인 화면 html과 연동
+    path('index', base_views.index, name='index'), # 보드랑 옷 보이는걸 수정
+    path('',filter,name='home')
+   
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
