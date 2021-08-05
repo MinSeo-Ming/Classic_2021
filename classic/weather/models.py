@@ -1,4 +1,4 @@
-from django.db import models
+
 from django.db.models.base import Model
 
 # Create your models here.
@@ -27,3 +27,4 @@ class Weather(models.Model):
 
 # 컨테인즈 관계로 설계를 해라...many to many -> 어쇼시에이션 클래스 하나가 새롭게
 # DDD modeling = msa ->이쪽으로 생각해보기...
+
