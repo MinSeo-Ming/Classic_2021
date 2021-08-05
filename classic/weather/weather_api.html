@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>weather info</title>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    
+<script>
+    /*
+    $.getJSON('파일경로', function(data){
+        //data로 할 일
+    });
+    */
+    $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=23b58efaade154fc157883de54595599&units=metric', 
+    function(data){
+        //data로 할 일
+        var $minTemp = data.main.temp_min;
+        var $maxTemp = data.main.temp_max;
+        var $current_temp = data.main.temp;
+        var $time = new Date($.now());
+        var $current_date = $time.getFullYear() +'/'+ ($time.getMonth() + 1) + '/'+$time.getDate() +'/'+$time.getHours() +':' + $time.getMinutes();
+        var $weather_icon = data.weather[0].icon;   
+        
+      
+
+       // alert($time.getFullYear() +'/'+ $time.getMonth() +'/'+$time.getDate() +'/'+$time.getHours() +':' + $time.getMinutes() );
+
+        $('.lowtemp').append($minTemp);         //lowtemp뒤에 minTemp추가(openweathermap api)
+        $('.hightemp').append($maxTemp);
+        $('.current_temp').append($current_temp);
+        $('h2').prepend($current_date);         //h2앞에 current_date 추가
+        $('.icon').append('<img src="http://openweathermap.org/img/wn/' + $weather_icon + '.png">');      
+    
+    });
+   
+        $.getJSON('http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth?serviceKey=fZGJv4qdHkRkYM1q%2FbbjbHYf5HJYQRepSohikfUPTb1cZlFEdir59IHXG7ATlm2jhlaicmV5uLlu8uhIRbf3Fg%3D%3D&returnType=xml&numOfRows=100&pageNo=1&searchDate=2021-08-03&InformCode=PM10',
+       function(result){
+           var $fine_dust_level = result.items.item[0].informcode;    //PM
+           var $fine_dust_date = result.items.item[0].informData;    //날짜(공공데이터포탈 대기질오염api)
+           var $fine_dust_region = result.items.item[0].informGrade;  //지역
+           var $fine_dust_comment = result.items.item[0].informCause; //설명
+        
+           $('.fine_dust').append($fine_dust_level);
+           $('.fdust_date').append($fine_dust_date);
+           $('.fdust_region').append($fine_dust_region);
+           $('.fdust_commtent').append($fine_dust_comment);
+           
+         
+       });
+
+ 
+   </script>
+    <h1>weather api</h1>
+    <h2> - 날씨 정보 </h2>
+    <div class="icon">  </div>
+    <div class="current_temp"> 현재 온도: </div>
+    <div class="lowtemp"> 최저 온도:  </div>
+    <div class="hightemp">최고 온도: </div><br>
+
+    <div class="fine_dust">미세먼지 PM지수: </div>
+    <div class="fdust_date">미세먼지 날짜: </div>
+    <div class="fdust_region">미세먼지 지역: </div>
+    <div class="fdust_commtent">미세먼지 코멘트: </div> 
+    <!-- <div class="ultra_fine_dust">초미세먼지: </div>
+
+    <!-<div class="detail_box"> 
+        <dl class="indicator"> 
+            <dt><a nocr="" onclick="return goOtherCR(this, 'a=nco_x7t*4.todustmr&amp;r=1&amp;i=88157038_00000065035F&amp;u=' + urlencode(this.href));" href="?where=nexearch&amp;sm=tab_etc&amp;qvt=0&amp;query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EC%9E%A0%EC%8B%A4%EB%8F%99%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80">미세먼지</a></dt> 
+            <dd class="lv1"><span class="num">13㎍/㎥</span>좋음
+            <span class="ico"></span></dd> 
+            <dt><a nocr="" onclick="return goOtherCR(this, 'a=nco_x7t*4.todustmr&amp;r=1&amp;i=88157038_00000065035F&amp;u=' + urlencode(this.href));" href="?where=nexearch&amp;sm=tab_etc&amp;qvt=0&amp;query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EC%9E%A0%EC%8B%A4%EB%8F%99%20%EC%B4%88%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80">초미세먼지</a></dt> 
+            <dd class="lv1"><span class="num">5㎍/㎥</span>좋음<span class="ico"></span></dd> <dt><a nocr="" onclick="return goOtherCR(this, 'a=nco_x7t*4.todustmr&amp;r=1&amp;i=88157038_00000065035F&amp;u=' + urlencode(this.href));" href="?where=nexearch&amp;sm=tab_etc&amp;qvt=0&amp;query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EC%9E%A0%EC%8B%A4%EB%8F%99%20%EC%98%A4%EC%A1%B4%EC%A7%80%EC%88%98">오존지수</a></dt> 
+            <dd class="lv2"><span class="num">0.041ppm</span>보통<span class="ico"></span></dd> </dl> </div>
+     -->
+    
+
+    <script>
+        console.log(navigator)
+        console.log(navigator.appVersion)
+      
+     
+
+        function requestCoords() {
+            navigator.geolocation.getCurrentPosition(success,fail);
+            navigator.geolocation.getCurrentPosition
+            navigator.geolocation.getweather
+        }
+
+
+        function success(position){                        //성공시 위도와 경도(위치) 정보 받음
+
+            console.log("위도" + position.coords.latitude)
+            console.log("경도" + position.coords.longitude)
+            console.log(position);
+            const latitude = position.coords.latitude;       // 경도  
+            const longitude = position.coords.longitude;     // 위도
+     
+}
+
+
+        function fail(err){     //실패함수
+            console.log("fail! " + err);
+
+    }
+
+        (function(){    
+            
+            navigator.geolocation.getCurrentPosition(success,fail)
+
+    })()
+
+        function getweather(lat, lon){
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={23b58efaade154fc157883de54595599}&units=metric`)
+            .then(res => res.json())
+            .then(data => {
+                const temp = data.main.temp;
+                const weathers = data.weather[data.weather.length-1];
+                weatherSpan.innerHTML =  `${temp}&#176;C ${weathers.main}`;
+            })
+            
+        }
+      
+        
+    </script>
+
+</body>
+
+
+</html>
