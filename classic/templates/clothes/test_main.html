@@ -1,28 +1,44 @@
 {% extends "base.html" %}
 
 {%  block content %}
-<!--이미지 크기 조정필요-->
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">           
-        <div class="carousel-inner">
-            {% for obj in cloth_list %}
-                {% if forloop.first %}
-                    <div class="carousel-item active  ">
-                {% else %}
-                    <div class="carousel-item  ">
-                {% endif %}
-                <img class="d-block w-100 h-50" src="{{ obj.image.url}}" >
-
-            {% endfor %}
-        </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+<div class="row">
+    <div class="col-3">
     </div>
+<!--이미지 크기 조정필요-->
 
+{%for products, range in cloth_list%}
+    <div class="col-9">
+    <div class="card" style="width: 18rem;">
+        <div class="carousel slide" data-ride="carousel">
+            
+            <div class="carousel-inner">
+            
+                {% for i in products %}
+                <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                    <img  src="{{i.image.url}}">
+                </div>
+            
+                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                </div><div class="carousel-item">
+                {% endif%}
 
+                {% endfor %}
+            </div>
+            </div>
+        
+{% endfor %}
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden=""></span>
+        <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden=""></span>
+        <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </div>
+    
+</div>   
+</div>   
 {% endblock %}

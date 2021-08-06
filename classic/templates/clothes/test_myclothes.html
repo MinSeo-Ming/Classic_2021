@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{%  block content %}
+<div class="container">
+ <div class="row">
+    <div class="col-3">
+    <div class="  p-3 mb-5 ">
+        <div class="item" style="padding-top: 15px;">
+          <img src="{%static 'image/user.png'%}" style="width: 80px; height: 80px;" alt=""> <br>
+          <p style="text-align: left; font-size: 0.8em;">
+            <span style="font-weight: bold;">{{ user.username }}</span> <br>
+            id: {{ user.email }} <br>
+            
+            
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+    <div class="row">
+    {%if clothes%}
+    {%for cl in clothes%}    
+      <div class="  p-3 mb-5 ">
+        <div class="item" style="padding-top: 15px;">
+          <p style="text-align: left; font-size: 0.8em;">
+            <a class="image_a_tag" href="{% url 'clothes:clothes_detail' cl.id %}" style="text-decoration: none">
+
+            <img src="{{ cl.image.url }}" style="width: 180px; height: 150px;" alt=""> <br>
+            <span style="font-weight: bold;">{{ cl.alias }}</span> <br>
+            계절: {{ cl.type }} <br>
+            색상: {{ cl.color }} <br>
+            날짜 : {{cl.create_date|date:"Y-m-d"}}<br>
+            
+        </div>
+      </div>
+      {%endfor%}
+      {%endif%}
+      <a href={%url 'clothes:clothes_upload'%}
+        <button > 추가하기 </button>
+      </a>
+      </div>
+        <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if clothes.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ clothes.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in clothes.paginator.page_range %}
+        {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+            {% if page_number == clothes.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if clothes.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ clothes.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+
+      {% comment %} 여기에 박스를 넣을 예정임 색상은.... 물어볼까??  {% endcomment %}
+    </div>
+  </div>
+</div>
+{% endblock %}
