@@ -34,7 +34,10 @@ def index(request):
     paginator = Paginator(question_list, 10)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)
 
-    context = {'question_list': page_obj, 'page':page, 'kw':kw, 'so':so}
+    # 공지사항 상단 고정하기
+    question_fixed = Question.objects.filter(top_fixed=True).order_by('-create_date')
+
+    context = {'question_list': page_obj, 'page':page, 'kw':kw, 'so':so, 'question_fixed':question_fixed}
     return render(request, 'board/question_list.html', context)
 
 

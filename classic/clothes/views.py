@@ -7,7 +7,8 @@ from django.views import generic
 from django.urls import reverse
 import copy
 from databaseCreations.database_create import createDB
-# createDB()
+# createDB() 
+# 주석처리 안하면 실행할때 마다 :)
 # runserver한번 한다음엔 바로 주석처리 하기 ㅋㅋㅋㅋㅋㅋ
 
 # Create your views here.

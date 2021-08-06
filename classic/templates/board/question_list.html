@@ -2,7 +2,7 @@
 {% load board_filter %}
 {% block content %}
 <div class="container my-3">
-    <table class="table">
+    <table class="table table-hover">
         <h4>문의하기</h4></br>
         <thead>
         <!-- 카테고리 항목이 누락되면 정렬이 매우 깨질 수 있음 -->
@@ -13,6 +13,33 @@
             <th>글쓴이</th>
             <th>작성일시</th>
         </tr>
+        <!-- 공지사항 상단고정 : 아래 본래 리스트 형식대로 조건문이랑 span 같이 걸어줘야 라인이 딱 맞음 -->
+        <!-- 상단고정 게시글이 검색에서 나오지 않게 해보려고 조건문을 걸었는데, 기존에 정렬을 최신순, 추천순, 인기순으로 정해버려서 후순위가 되는것으로 보임 -->
+        {% if q %}
+        {% else %}
+        {% if question_fixed %}
+        {% for question in question_fixed %}
+        <tr class="text-center" onclick="location.href='/board/{{ question.id }}/'">
+            <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
+            <td>
+                {% if question.voter.all.count > 0 %}
+                <span class="badge badge-warning px-2 p-1">{{ question.voter.all.count }}</span>
+                {% endif %}
+            </td>
+            <td class="text-left">
+                <!-- 공지 스팬을 여기에 걸어야 하는데 -->
+                <span class="badge badge-danger px-2 p-1">공지</span>
+                <a href="{% url 'board:detail' question.id %}">{{ question.subject|truncatechars:30 }}</a>
+                {% if question.answer_set.count > 0 %}
+                <span class="text-danger small ml-2">{{ question.answer_set.count }}</span>
+                {% endif %}
+            </td>
+            <td>{{ question.author.username }}</td>
+            <td>{{ question.create_date|date:'Y년 m월 d일' }}</td>        
+        </tr>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
         </thead>
         <tbody>
         {% if question_list %}
@@ -24,7 +51,7 @@
             </td>
             <td>
                 {% if question.voter.all.count > 0 %}
-                <span class="badge badge-warning px-2 p-1">{{question.voter.all.count }}</span>
+                <span class="badge badge-warning px-2 p-1">{{ question.voter.all.count }}</span>
                 {% endif %}
             </td>
             <td class="text-left">

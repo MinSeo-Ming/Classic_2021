@@ -10,6 +10,7 @@ class Question(models.Model):
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User, related_name='voter_question')  # 추천하기 기능
+    top_fixed = models.BooleanField(verbose_name='상단고정', default=False) # 공지사항 상단 고정하기
 
     def __str__(self) :
         return self.subject

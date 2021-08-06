@@ -123,3 +123,13 @@ text-align: center;
   background-color: #de6c99;
   border-color: #de6c99;
 }
+.badge-danger {
+  color: white;
+  background-color: #de6c99;
+  border-color: #de6c99;
+}
+.badge-warning {
+  color: black;
+  background-color: #ffd479;
+  border-color: #ffd479;
+}
