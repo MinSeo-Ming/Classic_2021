@@ -70,6 +70,26 @@ def clothes_detail(request,clothes_id):
 
 def filter(request):
     mon = int(datetime.now().month)
-    cloth_list = Clothing.objects.filter(month =mon)
-    print(cloth_list)
+    cloth_list = Clothing.objects.filter(month =mon) # 월별로 옷 필터링 하는 중 추후 기온으로 필터링 할예정
+    
     return render(request,'clothes/test_main.html',{'cloth_list':cloth_list})
+
+def getMypage(request):
+    mon = int(datetime.now().month)
+    if request.user=='default' or request.user =='admin':
+        pass
+    # 난 x모달을 띄우고 싶음-> html을 따로 만든다.. bootstrap -> 데코레이터 로그인 유무 하는것처럼 파이보 처럼 하는 방법이 하나 있음 success/fail -> 추후 방식으로.... 
+    # best : template안에 띄우는거 brower/localstorage에서 세션 정보 저장 가능 key value로 저장하고  -> js에서 처리 
+    # 세션 스토리지  이걸로 저장 하고 : 로컬 스토리지로 저장하기... 
+    # view rendering해서 전송하는거라 성공 에러로 렌더링을 다르게.. 데이터에 따라 프론트에서 하면 되지만... 여기선 페이지 렌더링이라..
+    else:
+        user = Clothing.objects.filter(author=request.user)
+        if user =='':
+            pass
+        #그럴일은 없겠지만 혹시나 해서 넣어둠
+        clothes = Clothing.objects.filter(author = request.user,month = mon)
+        if clothes ==[] :
+            pass
+        #x모달 띄우기        
+
+    
