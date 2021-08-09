@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
+    path('edit/',,name='edit'),
 
     # path('',views.~View.as_view(),name='home')    #추후에 메인 화면 html과 연동
     ]
