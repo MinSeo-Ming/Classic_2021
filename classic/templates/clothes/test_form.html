@@ -2,11 +2,9 @@
 {%block content%}
 <form method='post' action='' enctype="multipart/form-data">
 	{% csrf_token %}
-	<div class='container'>
-		<table>
-			{{ form.as_table }}
-		</table>
-		<input type="submit">
-	</div>
+	<table>
+		{{ form.as_table }}
+	</table>
+	<input type="submit">
 </form>
 {%endblock%}
