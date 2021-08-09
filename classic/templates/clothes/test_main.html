@@ -1,13 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
+{% block css %}
+<script defer src = "{% static 'js/main_template.js'%}"></script>
+
+<script defer src = "{% static 'js/weather_api.js'%}"></script>
+<link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+{% endblock css %}
 
 {%  block content %}
+
 <div class="row">
-    <div class="col-3">
+
+    <div class="border_first_inner col-3">
+
+        <h2> - 날씨 정보 </h2>
+        <div class="icon">  </div>
+        <div class="current_temp"> 현재 온도: </div>
+        <div class="lowtemp"> 최저 온도:  </div>
+        <div class="hightemp">최고 온도: </div><br>
     </div>
-<!--이미지 크기 조정필요-->
+    <div class="todo_border col-3 ">
+    <script defer src = "{% static 'js/close_event.js'%}"></script>
+        <div id="myDIV" class="header">
+            <h2 style="margin:5px">My To Do List</h2>
+            <input type="text" id="myInput" placeholder="Title...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="myUL">
+            <li>다음주 프로젝트 발표마스크 여분으로 챙겨다니기</li>
+            <li class="checked">저녁 약속!!</li>
+            <li>옷 새로 등록하기</li>
+            <li>필라테스 옷 챙기기</li>
+            <li>마스크 여분으로 챙겨다니기</li>
+            <li>운동 하기</li>
+        </ul>
+    </div>
 
 {%for products, range in cloth_list%}
-    <div class="col-9">
+    <div class="col-3">
     <div class="card" style="width: 18rem;">
         <div class="carousel slide" data-ride="carousel">
             
@@ -18,14 +49,14 @@
                     <img  src="{{i.image.url}}">
                 </div>
             
-                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
                 </div><div class="carousel-item">
                 {% endif%}
 
                 {% endfor %}
             </div>
             </div>
-        
+        </div>
 {% endfor %}
 
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -37,8 +68,8 @@
         <span class="sr-only">Next</span>
         </a>
         </div>
-    </div>
-    
-</div>   
-</div>   
+
+
+</div>
+
 {% endblock %}

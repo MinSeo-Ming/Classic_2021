@@ -18,9 +18,9 @@ class UploadingFileForm(forms.ModelForm):
             'image' :'이미지'
         }  
 
-class UpdateClothing(forms.ModelForm):
-    class Meta:
-        model = Clothing
-        tempate_name = 'clothes/test_update.html'
-        form_class = UploadingFileForm
-        success_url = 'clothes/clothes_index'
+# class UpdateClothing(forms.ModelForm):
+#     class Meta:
+#         model = Clothing
+#         tempate_name = 'clothes/test_update.html'
+#         form_class = UploadingFileForm
+#         success_url = 'clothes/clothes_index'
