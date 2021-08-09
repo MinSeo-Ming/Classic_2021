@@ -5,7 +5,7 @@
     <table class="table table-hover">
         <h4>문의하기</h4></br>
         <thead>
-        <!-- 카테고리 항목이 누락되면 정렬이 매우 깨질 수 있음 -->
+        <!-- 카테고리가 하나라도 누락되면 배치가 매우 깨질 수 있음 -->
         <tr class="text-center table-striped">
             <th>번호</th>
             <th>추천</th>
@@ -13,8 +13,8 @@
             <th>글쓴이</th>
             <th>작성일시</th>
         </tr>
-        <!-- 공지사항 상단고정 : 아래 본래 리스트 형식대로 조건문이랑 span 같이 걸어줘야 라인이 딱 맞음 -->
-        <!-- 상단고정 게시글이 검색에서 나오지 않게 해보려고 조건문을 걸었는데, 기존에 정렬을 최신순, 추천순, 인기순으로 정해버려서 후순위가 되는것으로 보임 -->
+        <!-- 공지사항 상단고정 : 하단의 원래 형식대로 조건문과 span 같이 걸어줘야 라인이 딱 맞음 -->
+        <!-- 상단고정 게시글이 검색에서 나오지 않게 해보려고 조건문을 걸었으나, 기존 정렬설정(최신순, 추천순, 인기순)으로 정하여 후순위가 되는것으로 보임 -->
         {% if q %}
         {% else %}
         {% if question_fixed %}
@@ -27,7 +27,7 @@
                 {% endif %}
             </td>
             <td class="text-left">
-                <!-- 공지 스팬을 여기에 걸어야 하는데 -->
+                <!-- 공지 span -->
                 <span class="badge badge-danger px-2 p-1">공지</span>
                 <a href="{% url 'board:detail' question.id %}">{{ question.subject|truncatechars:30 }}</a>
                 {% if question.answer_set.count > 0 %}
@@ -79,7 +79,7 @@
             <button type="list" class="listbtn"><a href="?page=1">첫번째페이지</button></a>
         </li>
         <li class="page-item">
-            <a class="page-link" data-page="{{ question_list.previous_page_number }}" href="#">이전</a><!-- checked -->
+            <a class="page-link" data-page="{{ question_list.previous_page_number }}" href="#">이전</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -94,11 +94,11 @@
         {% if page_number >= question_list.number|add:-3 and page_number <= question_list.number|add:3 %}
             {% if page_number == question_list.number %}
             <li class="page-item active" aria-current="page">
-                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a><!-- checked -->
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% else %}
             <li class="page-item">
-                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a><!-- checked -->
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% endif %}
         {% endif %}
@@ -106,7 +106,7 @@
         <!-- 다음페이지 -->
         {% if question_list.has_next %}
         <li class="page-item">
-            <a class="page-link" data-page="{{ question_list.next_page_number }}" href="#">다음</a> <!-- checked -->
+            <a class="page-link" data-page="{{ question_list.next_page_number }}" href="#">다음</a>
         </li>
         <li class="page-item">
             <button type="list" class="listbtn"><a href="?page={{ question_list.paginator.num_pages }}">마지막페이지</button></a>&nbsp;&nbsp;
@@ -124,7 +124,7 @@
     <a href="{% url 'board:question_create' %}" class="btn btn-primary">문의 등록하기</a>
 </div>
     <div class="row justify-content-center my-3">
-    <!-- 검색 기능 추가하기 : 하단 중앙에 두고 싶어서 여기에 검색창과 form element 추가 -->
+    <!-- 검색 기능 추가 : 하단 중앙에 두고 싶어서 여기에 검색창과 form element 추가 -->
     <!-- 검색 정렬 기능 : 최신순, 추천순, 인기순 -->
         <div class="col-2">
             <select class="form-control so">
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
     $("#btn_search").on('click', function() {
         $("#kw").val($(".kw").val());
-        $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+        $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회
         $("#searchForm").submit();
     });
 

@@ -4,7 +4,7 @@
     <h5 class="my-3 border-bottom pb-2">문의등록</h5>
     <form method="post" class="post-form my-3">
         {% csrf_token %}
-        <!-- error alert Start -->
+        <!-- error alert 시작 -->
         {% if form.errors %}
             <div class="alert alert-danger" role="alert">
             {% for field in form %}
@@ -15,7 +15,7 @@
             {% endfor %}
             </div>
         {% endif %}
-        <!-- error alert End -->
+        <!-- error alert 끝 -->
         <div class="form-group">
             <label for="subject">제목</label>
             <input type="text" class="form-control" name="subject" id="subject"

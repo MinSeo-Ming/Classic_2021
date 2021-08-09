@@ -18,7 +18,7 @@
             <div class="bg-light text-center p-3 border font-weight-bolder mb-1">{{ question.voter.count }}</div>
             <a href="#" data-uri="{% url 'board:vote_question' question.id %}" class="recommend btn btn-sm btn-yellow btn-block my-1">추천</a>
         </div>
-        <!-- 추천 영역 END -->
+        <!-- 추천 영역 끝 -->
         <!-- 질문 영역 시작 -->
         <div class="col-11">
             <div class="card">
@@ -42,7 +42,8 @@
                         <a href="#" class="delete btn btn-sm btn-outline-secondary" data-uri="{% url 'board:question_delete' question.id %}">삭제</a>
                     </div>
                     {% endif %}
-                    <!-- Question 질문 댓글 Start -->
+                    <!-- 질문 영역 끝 -->
+                    <!-- 질문 댓글 시작 -->
                     {% if question.comment_set.count > 0 %}
                     <div class="mt-3">
                     {% for comment in question.comment_set.all %}
@@ -68,7 +69,7 @@
                         <a href="{% url 'board:comment_create_question' question.id  %}"
                            class="small"><small>댓글 추가 ..</small></a>
                     </div>
-                    <!-- 질문 댓글 End -->
+                    <!-- 질문 댓글 끝 -->
                 </div>
             </div>
         </div>
@@ -102,7 +103,7 @@
                            data-uri="{% url 'board:answer_delete' answer.id  %}">삭제</a>
                     </div>
                     {% endif %}
-                    <!-- Answer 댓글 목록 화면 + 댓글 추가하는 링크 -->
+                    <!-- 답변 댓글 목록 화면 + 댓글 추가하는 링크 -->
                     {% if answer.comment_set.count > 0 %}
                     <div class="mt-3">
                     {% for comment in answer.comment_set.all %}
@@ -128,7 +129,7 @@
                         <a href="{% url 'board:comment_create_answer' answer.id  %}"
                            class="small"><small>댓글 추가 ..</small></a>
                     </div>
-                    <!-- 답변 댓글 end -->
+                    <!-- 답변 댓글 끝 -->
                 </div>
             </div>
         </div>

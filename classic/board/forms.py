@@ -5,11 +5,11 @@ class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question # 사용할 모델
         fields = ['subject', 'content', 'top_fixed'] # QuestionForm에서 사용할 Question 모델의 속성
-        # Question 모델과 연결된 폼으로, 속성으로 Question 모델의 subject, content를 사용합니다.
+        # Question 모델과 연결된 폼(속성)으로 Question 모델의 subject, content, top_fixed 를 사용합니다.
         labels = {
             'subject' : '제목 ',
             'content' : '내용 ',
-            'top_fixed' : '상단고정 ',  # 공지사항 상단고정하기 추가
+            'top_fixed' : '상단고정 ',  # 공지사항 상단고정하기
         }
 
 class AnswerForm(forms.ModelForm):
