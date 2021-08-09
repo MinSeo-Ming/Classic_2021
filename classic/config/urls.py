@@ -23,6 +23,8 @@ from clothes.views import filter
 # from mysite.views import HomeView
 from board.views import base_views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', include('board.urls')),
