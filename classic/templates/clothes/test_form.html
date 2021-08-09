@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
-{%block content%}
+{% block content %}
 <form method='post' action='' enctype="multipart/form-data">
 	{% csrf_token %}
 	<table>
 		{{ form.as_table }}
 	</table>
-	<input type="submit">
+	<p>
+	<button type="submit" class="btn btn-primary">제출</button>&nbsp
+  </p>
+	<!-- <input type="submit"> 원래 버전 -->
 </form>
-{%endblock%}
+{% endblock %}

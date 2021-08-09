@@ -4,10 +4,21 @@
 <div class="item" style="padding-top: 15px;">
     <p style="text-align: left; font-size: 0.8em;">
       <img src="{{ clothes.image.url }}" style="width: 180px; height: 150px;" alt=""> <br>
-      <span style="font-weight: bold;">{{ clothes.alias }}</span> <br>
-      계절: {{ clothes.type }} <br>
-      색상: {{ clothes.color }} <br>
-      날짜 : {{clothes.create_date|date:"Y-m-d"}}<br>
-      <button type=submit>수정</button>
-      <button type=submit>삭제</button>
+      <span style="font-weight: bold; font-size: 15px;">{{ clothes.alias }}</span> <br>
+      <p>
+      <span class="clothesseason"> 계절: {{ clothes.type }} </span><br> <!-- (수정중) 추가할 디자인 있을 경우 span style 추가하기 -->
+      <span class="clothescolor"> 색상: {{ clothes.color }} </span><br>
+      <span class="clothesdate"> 날짜 : {{clothes.create_date|date:"Y-m-d"}} </span><br>
+      </p>
+      <!-- (수정중) 수정 & 삭제하기 -->
+      <div class="my-3">
+        <a href="#"
+           class="btn btn-sm btn-outline-secondary">수정</a> <!-- #에 수정 관련 주소 추가하기 -->
+        <a href="#" class="delete btn btn-sm btn-outline-secondary"
+           data-uri="#">삭제</a> <!-- data-uri에 삭제 관련 주소 추가하기-->
+      </div>
+</div>
 {% endblock %}
+
+
+
