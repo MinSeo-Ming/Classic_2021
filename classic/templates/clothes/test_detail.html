@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="item" style="padding-top: 15px;">
+<div class="item container" style="padding-top: 15px;">
     <p style="text-align: left; font-size: 0.8em;">
       <img src="{{ clothes.image.url }}" style="width: 180px; height: 150px;" alt=""> <br>
       <span style="font-weight: bold;">{{ clothes.alias }}</span> <br>
@@ -10,4 +10,5 @@
       날짜 : {{clothes.create_date|date:"Y-m-d"}}<br>
       <button type=submit>수정</button>
       <button type=submit>삭제</button>
+</div>
 {% endblock %}
