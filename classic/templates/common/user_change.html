@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    
+    <form method="POST">
+    {% csrf_token %}
+    <table>
+			{{ form.as_table }}
+		</table>
+    
+    <input type="submit" class="btn btn-sm btn-outline-secondary" value="계정 정보 수정"/>
+    </form>
+    <br>
+    <a href="#" class="delete btn btn-sm btn-outline-secondary" data-uri="{% url 'common:delete' user.id%}">회원탈퇴</a>
+    <a href="{% url 'common:password' %}" class="btn btn-sm btn-outline-secondary">비밀밀호 변경</a>
+</div>
+
+{% endblock %}
+{% block script %}
+<script defer type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
+{%endblock%}

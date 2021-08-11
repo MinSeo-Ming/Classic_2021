@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h1> {{ user.username }}'s Settings</h1>
+   <br>
+    
+    <div class="row">
+    
+      user's email : {{ user.email }}<br>
+      user's username : {{ user.username }}<br>
+
+    </div>
+        <br>
+    
+    <div>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'common:update' %}">계정정보수정</a>
+    </div>
+</div>
+{%endblock%}

@@ -22,7 +22,9 @@ from . import views
 app_name ="clothes"
 urlpatterns = [
     path('clothes_upload/',views.clothing_upload,name="clothes_upload"),
-    path('clothes_index/',views.clothes_index,name="clothes_index"),
+    # path('clothes_index/',views.clothes_index,name="clothes_index"),
     path('clothes_detail/<int:clothes_id>/',views.clothes_detail,name="clothes_detail"),
-    path('mypage',views.getMyclothes,name='myclothes'),
+    path('clothes_update/<int:clothes_id>/',views.clothing_update,name="clothing_update"),
+    path('clothes_delete/<int:clothes_id>/',views.clothing_delete,name="clothing_delete"),
+    path('mypage/',views.getMyclothes,name='myclothes'),
 ]

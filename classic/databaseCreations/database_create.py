@@ -85,11 +85,12 @@ def createClothes():
         reader = csv.reader(f)
         make = User.objects.get(username ='default')
         for row in reader:
+            print(row[1])
             t = Clothes_Main_type.objects.get(type=row[1])
             c = Color.objects.get(color =row[2])
             l = Length.objects.get(length = row[5])
             img = "clothing/images/" + row[6]
-
+            print(t)
 
             Clothing.objects.create(
                 author = make,
