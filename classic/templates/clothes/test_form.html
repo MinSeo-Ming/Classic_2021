@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{%load bootstrap4%}
 {% block content %}
 <form method='post' action='' enctype="multipart/form-data">
 	{% csrf_token %}
 
-	<div class='container'>
-		<table>
-			{{ form.as_table }}
-		</table>
+	<div class='container' style="width:800px">
+		
+			{% bootstrap_form form %}
+		
     <p>
-		<input type="submit" class="btn btn-primary">제출</button>&nbsp
+		<button type="submit" class="btn btn-primary">제출</button>
 </p>
 	</div>
 

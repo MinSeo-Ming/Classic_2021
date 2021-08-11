@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{%load bootstrap4%}
 {% block content %}
-<div class="container">
+<div class="container" style="width:800px" >
     
     <form method="POST">
     {% csrf_token %}
     <table>
-			{{ form.as_table }}
+			{% bootstrap_form form %}
 		</table>
     
     <input type="submit" class="btn btn-sm btn-outline-secondary" value="계정 정보 수정"/>

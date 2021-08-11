@@ -3,19 +3,44 @@
 		padding:0;
 		box-sizing:border-box;
 	} */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+ 
 	
 .border {
     display:flex;
 }
+.current_temp{
+  margin-left: 15px;
+  margin-bottom: 10px;
+  
+}
+.current_humidity{
+  margin-left: 15px;
+  
+}
+.lowtemp{
+  margin-left: 15px;
+  
+}
+.hightemp{
+  margin-left: 15px;
+  
+}
+
+.p{
+  margin-left: 250px;
+}
 
 .border_first_inner{
-  border-style: solid;
-  border-color: red;
-  font-family: 'Gaegu', cursive;
+  /* border-style: solid;
+  border-color: red; */
+  font-family: 'Jua', sans-serif;
   font-size: 23px;
   display: inline-block;
   margin-right: 10px;
-  padding:50px 50px 50px 100px;
+  /* padding: 100px 50px 50px 180px; */
+  background-image: url('https://cdn.pixabay.com/photo/2017/09/08/22/45/background-2730506_960_720.jpg')
 }
 
 ul {
@@ -23,9 +48,9 @@ ul {
   padding: 0;
   }
 
-/* Style the list items */
-ul li {
-  cursor: pointer;
+/* Style the list items */ */
+/* ul li {
+  /* cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
@@ -33,32 +58,32 @@ ul li {
   font-size: 18px;
   transition: 0.2s;
   
-  /* make the list items unselectable */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+  
+  -webkit-user-select: none; */
+  /* -moz-user-select: none;
+  -ms-user-select: none; */
+  /* user-select: none; */
 
-  /* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
+
+/* odd 리스트 다 다른 컬러 */
+.todo:nth-child(odd) {
   background: #f9f9f9;
   }
 
-  /* Darker background-color on hover */
-ul li:hover {
+
+.todo :hover {
   background: #ddd;
 }
 
-  /* When clicked on, add a background color and strike out text */
-ul li.checked {
+/* 클릭하면 백그라운드 컬러 변경 */
+.todo.checked {
   background: #888;
   color: #fff;
   text-decoration: line-through;
 }
 
-  /* Add a "checked" mark when clicked on */
-ul li.checked::before {
+/* 체크하면 밑줄 */
+.todo.checked::before {
   content: '';
   position: absolute;
   border-color: #fff;
@@ -71,7 +96,7 @@ ul li.checked::before {
   width: 7px;
 }
 
-  /* Style the close button */
+
 .close {
   position: absolute;
   right: 0;
@@ -84,23 +109,23 @@ ul li.checked::before {
   color: white;
 }
 
-  /* Style the header */
+ 
 .header {
-  background-color: #f44336;
+  background-color: 	#B0C4DE;
   /*margin-left: 1000px; 요기 제외!!!!!!!!!!!*/
   padding: 30px 40px;
   color: white;
   text-align: center;
 }
 
-  /* Clear floats after the header */
+
 .header:after {
   content: "";
   display: table;
   clear: both;
 }
 
-  /* Style the input */
+ 
 input {
   margin: 0;
   border: none;
@@ -111,7 +136,7 @@ input {
   font-size: 16px;
 }
 
-  /* Style the "Add" button */
+ 
 .addBtn {
   padding: 10px;
   width: 25%;
@@ -128,29 +153,30 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
-.head1{
+/* .head1{
       margin: 0px 0px 0px 250px;
       
 }
 .head2{
       margin: 0px 0px 10px 270px;
       
+} */
+.h1{
+  text-align: center;
+}
+.h2{
+  
+  margin-left: 28px;
+}
+.icon{
+  margin-left: 38px;
+  padding-left: 28px;
+  padding-bottom: 10px;
 }
 .carousel-inner{
       width: 500px;
       height: 500px;
-      margin-left: 700px;
+      margin-left: 300px;
 }
   
-.current_temp{
-      margin-left: 20px;
-}
-.lowtemp{
-      margin-left: 20px;
-}
-.hightemp{
-      margin-left: 20px;
-}
-.p{
-      margin-left: 250px;
-}
+
