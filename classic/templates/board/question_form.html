@@ -4,7 +4,7 @@
     <h5 class="my-3 border-bottom pb-2">문의등록</h5>
     <form method="post" class="post-form my-3">
         {% csrf_token %}
-        <!-- error alert Start -->
+        <!-- error alert 시작 -->
         {% if form.errors %}
             <div class="alert alert-danger" role="alert">
             {% for field in form %}
@@ -15,7 +15,7 @@
             {% endfor %}
             </div>
         {% endif %}
-        <!-- error alert End -->
+        <!-- error alert 끝 -->
         <div class="form-group">
             <label for="subject">제목</label>
             <input type="text" class="form-control" name="subject" id="subject"
@@ -28,8 +28,12 @@
         </div>
         <button type="submit" class="btn btn-primary">저장하기</button>&nbsp
         <button type="reset" class="btn btn-danger">초기화</button>&nbsp
-        <a class="btn btn-info" href="/board/" role="button">목록으로</a>
-
+        <a class="btn btn-info" href="/board/" role="button">목록으로</a>&nbsp&nbsp&nbsp
+        <!-- 공지사항 상단고정 체크박스 -->
+        <label>
+            {{ form.top_fixed }}
+            <span>상단에 표시하기</span>
+        </label>
     </form>
 </div>
 {% endblock %}
