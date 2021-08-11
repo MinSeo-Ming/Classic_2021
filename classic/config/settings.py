@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'board.apps.BoardConfig',
     'weather.apps.WeatherConfig',
     'django_filters',
-
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

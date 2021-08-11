@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% block css%}
+
+<link rel="stylesheet" href="{% static 'css/clothes.css' %}"/>
+{%endblock%}
+{% load static %}
 {%  block content %}
 <div class="container">
  <div class="row">
@@ -25,10 +30,13 @@
             <a class="image_a_tag" href="{% url 'clothes:clothes_detail' cl.id %}" style="text-decoration: none">
 
             <img src="{{ cl.image.url }}" style="width: 180px; height: 150px;" alt=""> <br>
-            <span style="font-weight: bold;">{{ cl.alias }}</span> <br>
-            계절: {{ cl.type }} <br>
-            색상: {{ cl.color }} <br>
-            날짜 : {{cl.create_date|date:"Y-m-d"}}<br>
+            <br><span class="clothesname">{{ cl.alias }}</span> <br>
+            <br><span class ="clothesdivide">옷 분류 </span>
+            <span style=" background:"> &nbsp{{ cl.type }} </span><br>
+            <span class="clothescolor">색상 </span>
+            <span style=" background:">&nbsp {{ cl.color }} </span><br>
+            <span class="clothesdate" > 날짜 </span>
+            <span style=" background:">&nbsp{{cl.create_date|date:"Y-m-d"}}</span><br>
             
         </div>
       </div>
@@ -36,8 +44,8 @@
       {%endif%}
       
       </div>
-      <br>
-      <a href={%url 'clothes:clothes_upload'%} class="btn btn-sm btn-outline-secondary">
+      
+      <a href={%url 'clothes:clothes_upload'%} class="btn btn-sm btn-danger">
          추가하기 
       </a>
         <ul class="pagination justify-content-center">
