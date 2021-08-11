@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container" style="width:800px">
-<h1> {{ user.username }}'s Settings</h1>
+
+<div class="container">
+<p><br><h3> '{{ user.username }}'님 회원정보</h3></p>
+
    <br>
     
-    <div class="row">
+    <div>
     
-      user's email : {{ user.email }}<br>
-      user's username : {{ user.username }}<br>
+      <strong>이메일 주소</strong> &nbsp;&nbsp;&nbsp;{{ user.email }}<br>
+      <strong>사용자 이름</strong> &nbsp;&nbsp;&nbsp;{{ user.username }}<br>
 
     </div>
         <br>
     
     <div>
-        <a class="btn btn-sm btn-outline-secondary" href="{% url 'common:update' %}">계정정보수정</a>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'common:update' %}">계정정보수정</a><br></br>
     </div>
 </div>
-{%endblock%}
+{% endblock %}
