@@ -17,3 +17,10 @@ class UploadingFileForm(forms.ModelForm):
             'length':'길이',
             'image' :'이미지'
         }  
+
+# class UpdateClothing(forms.ModelForm):
+#     class Meta:
+#         model = Clothing
+#         tempate_name = 'clothes/test_update.html'
+#         form_class = UploadingFileForm
+#         success_url = 'clothes/clothes_index'

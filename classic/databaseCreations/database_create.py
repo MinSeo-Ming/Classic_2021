@@ -1,6 +1,5 @@
 import csv
 import os
-# import pandas as pd
 from clothes.models import Color,Clothing,Clothes_Main_type,Length
 from weather.models import Month, fine_Dust_ppm_2_5,fine_Dust_ppm_10,Weather
 from django.contrib.auth.models import User
@@ -14,9 +13,7 @@ def createColor():
     file_path = os.path.join(dir,'clothes_colors.csv')
     with open(file_path,'r',encoding='utf-8-sig',newline='')as f:
         reader = csv.reader(f)
-        
         for row in reader:
-            print(row)
             Color.objects.create(
                 color = row[0]
             )
@@ -26,7 +23,7 @@ def createType():
     with open(file_path,'r',encoding='utf-8-sig',newline='')as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
+            
             Clothes_Main_type.objects.create(
                 type = row[0]
             )
@@ -38,7 +35,7 @@ def createLength():
         reader = csv.reader(f)
         
         for row in reader:
-            print(row)
+            
             Length.objects.create(
                 length = row[0]
             )
@@ -50,7 +47,6 @@ def createMonth():
         reader = csv.reader(f)
         
         for row in reader:
-            print(row)
             Month.objects.create(
                 month = row[0],
                 min_temp = float(row[1]),
@@ -63,7 +59,7 @@ def createFineDust_10():
     with open(file_path,'r',encoding='utf-8-sig',newline='')as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
+            
             fine_Dust_ppm_10.objects.create(
                 grade = row[0],
                 min_ppm =int(row[1]),
@@ -76,7 +72,7 @@ def createFineDust_2_5():
     with open(file_path,'r',encoding='utf-8-sig',newline='')as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
+            
             fine_Dust_ppm_2_5.objects.create(
                 grade = row[0],
                 min_ppm =int(row[1]),
@@ -89,15 +85,13 @@ def createClothes():
         reader = csv.reader(f)
         make = User.objects.get(username ='default')
         for row in reader:
-            
-            # print(row)
+            print(row[1])
             t = Clothes_Main_type.objects.get(type=row[1])
             c = Color.objects.get(color =row[2])
             l = Length.objects.get(length = row[5])
             img = "clothing/images/" + row[6]
+            print(t)
 
-
-            # print(t,c,l,img)
             Clothing.objects.create(
                 author = make,
                 type = t,
@@ -107,13 +101,9 @@ def createClothes():
                 month=int(row[4]),
                 length=l,
                 image = img
-                # image #이거 수정이 필요할듯???? 일단 얘는 이따 강사님께 여쭤보고 만들자....ㅣ...ㅏ로나ㅓㅇ로말오미ㅏㅡㄹ어ㅗ마어ㅗ
             )
 
-#db lock
 
-
-# 3. 
 
 def createWeather():
     i=1
