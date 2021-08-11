@@ -2,12 +2,15 @@
 {% block content %}
 <form method='post' action='' enctype="multipart/form-data">
 	{% csrf_token %}
-	<table>
-		{{ form.as_table }}
-	</table>
-	<p>
-	<button type="submit" class="btn btn-primary">제출</button>&nbsp
-  </p>
-	<!-- <input type="submit"> 원래 버전 -->
+
+	<div class='container'>
+		<table>
+			{{ form.as_table }}
+		</table>
+    <p>
+		<input type="submit" class="btn btn-primary">제출</button>&nbsp
+</p>
+	</div>
+
 </form>
 {% endblock %}

@@ -1,6 +1,6 @@
 <!-- 네비게이션바 -->
 <nav class="navbar navbar-expand-xl navbar-light bg-light justify-content-center">
-    <span class="classic" href="#">Classic</span> 
+    <span class="classic" href="{%url 'home'%}">Classic</span> 
 </nav>
 <nav class="navbar navbar-expand-xl bg-light justify-content-center">
   <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -17,10 +17,10 @@
             <p style="text-align:right;"><a class="nav-link" href="{% url 'common:login' %}">로그인</a></p>
             {% endif %}
         </li>&nbsp;
-  <!-- (수정중) 로그인 시 회원가입 부분이 마이페이지로 전환 (마이페이지 만들어지면 href 수정 필요) -->
+ 
         <li class="nav-item">
             {% if user.is_authenticated %}
-            <a class="nav-link" href="#">마이페이지</a>
+            <a class="nav-link" href="{% url 'common:user' request.user.username %}">마이페이지</a>
             {% else %}
             <a class="nav-link" href="{% url 'common:signup' %}">회원가입</a>
             {% endif %}
@@ -32,13 +32,15 @@
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="#">HOME</a><!--(수정중) 홈페이지 주소 추가하기 -->
+              <a class="nav-link" href="{%url 'home'%}">HOME</a><!--(수정중) 홈페이지 주소 추가하기 -->
           </li>
-          <li class="nav-item">
+         <li class="nav-item">
               <a class="nav-link" href="{% url 'board:index' %}">문의하기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">내 옷 구경하기</a>
+
+            <a class="nav-link" href="{% url 'clothes:myclothes'%}">내 옷 구경하기</a>
+
         </li>
       </ul>
   </div>
