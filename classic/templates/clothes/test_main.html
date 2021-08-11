@@ -27,14 +27,15 @@
             <span onclick="newElement()" class="addBtn">Add</span>
         </div>
 
-        <ul id="myUL">
-            <li>다음주 프로젝트 발표마스크 여분으로 챙겨다니기</li>
-            <li class="checked">저녁 약속!!</li>
-            <li>옷 새로 등록하기</li>
-            <li>필라테스 옷 챙기기</li>
-            <li>마스크 여분으로 챙겨다니기</li>
-            <li>운동 하기</li>
-        </ul>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">이전</span><!-- 구동된 화면 보고 수정하기, li로 묶을 것인가 -->
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">다음</span>
+        </button>
+
     </div>
 
 {%for products, range in cloth_list%}

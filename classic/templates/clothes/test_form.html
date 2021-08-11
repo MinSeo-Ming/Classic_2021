@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
-{%block content%}
+{% block content %}
 <form method='post' action='' enctype="multipart/form-data">
 	{% csrf_token %}
+
 	<div class='container'>
 		<table>
 			{{ form.as_table }}
 		</table>
-		<input type="submit">
+    <p>
+		<input type="submit" class="btn btn-primary">제출</button>&nbsp
+</p>
 	</div>
+
 </form>
-{%endblock%}
+{% endblock %}
