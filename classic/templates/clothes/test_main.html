@@ -2,15 +2,12 @@
 {% load static %}
 {% block css %}
 <script defer src = "{% static 'js/main_template.js'%}"></script>
-
 <script defer src = "{% static 'js/weather_api.js'%}"></script>
-
+<script defer src = "{% static 'js/close_event.js'%}"></script>
 <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
-
 {% endblock css %}
 
 {%  block content %}
-
 <div class="row">
 
     <div class="border_first_inner col-3">
@@ -41,22 +38,19 @@
 
         </div>        
         <ul id="myUL">
-            <li>다음주 프로젝트 발표</li>
-            <li class="checked">저녁 약속!!</li>
-            <li>옷 새로 등록하기</li>
-            <li>필라테스 옷 챙기기</li>
-            <li>마스크 여분으로 챙겨다니기</li>
-            <li>운동 하기</li>  
+            <li class="todo">다음주 프로젝트 발표</li>
+            <li class="checked todo">저녁 약속!!</li>
+            <li class="todo">옷 새로 등록하기</li>
+            <li class="todo">필라테스 옷 챙기기</li>
+            <li class="todo">마스크 여분으로 챙겨다니기</li>
+            <li class="todo">운동 하기</li>  
         </ul>
       
-
     </div>
 
 {%for products, range in cloth_list%}
     <div class="col-3">
-    
         <div class="carousel slide" data-ride="carousel">
-            
             <div class="carousel-inner" style="margin:40px;">
             
                 {% for i in products %}
