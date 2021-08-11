@@ -1,3 +1,4 @@
+from weather.models import Month, Weather
 from django.core import paginator
 from django.core.checks import messages
 from django.shortcuts import get_object_or_404, redirect, render
@@ -50,33 +51,6 @@ def clothing_update (request,clothes_id):
         return render(request, 'clothes/test_form.html', context)
 
 
-# def clothes_index(request):
-#     lists = Clothing.objects.order_by('-create_date')
-#     clothes_list=[]
-#     default_list =[]
-    
-#     for com in lists:
-#         if request.user == com.author:
-#             clothes_list.append(com)
-
-#         if str(com.author) == "default":
-#             default_list.append(com)
-    
-#     if len(clothes_list)==0:
-#         clothes_list = copy.deepcopy(default_list)
-#     #if session == logout -> default 내용 뿌리기 ... 
-#     # 흠... 메소드 분리가필요할거 같은데 일단 보류
-#     #테스트가 필요함 로그인 해서 잘 뿌려지는지 확인! ->구현 확인
-    
-#     # paginator =Paginator(clothes_list,10)
-#     # page_obj = paginator.get_page(page)
-#     context = {'clothes_list':clothes_list}
-
-#     return render(request,'clothes/test_list.html',context)
-
-#삭제 수정이 필요함 아 만약 default이면 삭제 수정이 없게 해야함 => hidden으로 바꾸기
-
-
 def clothes_detail(request,clothes_id):
     clothes = get_object_or_404(Clothing,pk = clothes_id)
     return render(request,'clothes/test_detail.html',{"clothes":clothes})
@@ -90,10 +64,12 @@ def filter(request):
     
     return render(request,'clothes/test_main.html',{'cloth_list':cloth_list})
 
+
 def getMyclothes(request):
     user = get_object_or_404(User,username = request.user)
     clothes= Clothing.objects.filter(author = request.user)
     
+
     paginator = Paginator(clothes,8)
     page = request.GET.get('page',1)
     
@@ -101,6 +77,7 @@ def getMyclothes(request):
     context = {'clothes':page_obj,'user':user}
 
     return render(request,'clothes/test_myclothes.html',context)
+
 
 def clothing_delete(request,clothes_id):
     

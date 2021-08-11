@@ -1,0 +1,26 @@
+.clothesdivide{
+  font-weight: bold; 
+  background:#FFD479;
+}
+.clothescolor{
+  font-weight: bold; 
+  background:#F5CFDD;
+}
+.clothesdate{
+  font-weight: bold; 
+  background:#C0DFDD;
+}
+.clothesname{
+  font-weight: bold; 
+  border:2px solid #B0D4E3;
+}
+.clotheslength{
+  font-weight: bold; 
+  background:#B2DFF3;
+}
+
+.clothesmonth{
+  font-weight: bold; 
+  background:#C0DFDD;
+}
+
