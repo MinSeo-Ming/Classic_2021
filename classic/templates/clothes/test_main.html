@@ -54,14 +54,14 @@
 
 {%for products, range in cloth_list%}
     <div class="col-3">
-    <div class="card" style="width: 18rem;">
+    
         <div class="carousel slide" data-ride="carousel">
             
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="margin:40px;">
             
                 {% for i in products %}
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img  src="{{i.image.url}}">
+                    <img  src="{{i.image.url}} "style="width: 500px; height: 400px;">
                 </div>
             
                 {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
@@ -71,18 +71,11 @@
                 {% endfor %}
             </div>
             </div>
+        
         </div>
 {% endfor %}
 
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden=""></span>
-        <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden=""></span>
-        <span class="sr-only">Next</span>
-        </a>
-        </div>
+        
 </div>
 
 {% endblock %}
