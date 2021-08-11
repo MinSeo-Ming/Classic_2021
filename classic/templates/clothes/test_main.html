@@ -5,6 +5,7 @@
 <script defer src = "{% static 'js/weather_api.js'%}"></script>
 <script defer src = "{% static 'js/close_event.js'%}"></script>
 <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+
 {% endblock css %}
 
 {%  block content %}
@@ -15,6 +16,7 @@
         <h1> </h1>
         <h2 div class="h2">오늘의 날씨</h2>
         <div class="icon">  </div>
+
         <div class="current_temp"> <img src="https://image.flaticon.com/icons/png/512/4343/4343390.png" width="40px" height="40px">
             현재 온도: </div>
 
@@ -48,28 +50,31 @@
       
     </div>
 
-{%for products, range in cloth_list%}
-    <div class="col-3">
-        <div class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" style="margin:40px;">
-            
-                {% for i in products %}
-                <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img  src="{{i.image.url}} "style="width: 500px; height: 400px;">
-                </div>
-            
-                {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
-                </div><div class="carousel-item">
-                {% endif%}
 
-                {% endfor %}
-            </div>
-            </div>
-        
+{%for products, range in cloth_list%}
+
+<div class="col-3">
+    <div class="card" style="width: 18rem;">
+        <div class="carousel slide" data-ride="carousel">       
+    <div class="carousel-inner" style="margin-left:40px">
+    
+        {% for i in products %}
+        <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+            <img  src="{{i.image.url}} "style="width: 500px; height: 450px;">
         </div>
+    
+        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+        </div><div class="carousel-item">
+        {% endif%}
+
+        {% endfor %}
+
+        </div>
+    </div>
+    </div>
 {% endfor %}
 
-        
+
 </div>
 
 {% endblock %}
