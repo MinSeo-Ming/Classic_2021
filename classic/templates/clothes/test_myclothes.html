@@ -34,10 +34,12 @@
       </div>
       {%endfor%}
       {%endif%}
-      <a href={%url 'clothes:clothes_upload'%}
-        <button > 추가하기 </button>
-      </a>
+      
       </div>
+      <br>
+      <a href={%url 'clothes:clothes_upload'%} class="btn btn-sm btn-outline-secondary">
+         추가하기 
+      </a>
         <ul class="pagination justify-content-center">
         <!-- 이전페이지 -->
         {% if clothes.has_previous %}

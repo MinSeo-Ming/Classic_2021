@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 
-{%block content%}
+{% block content %}
 <div class="image_container">
 {% for list in clothes_list %}
   <div class="item images" style="padding-top: 15px;">
-    <p style="text-align: left; font-size: 0.8em;">
+    <p style="text-align: left; font-size: 15px;"><!-- 기존 : 0.8em -->
     <a class="image_a_tag" href="{% url 'clothes:clothes_detail' list.id %}" style="text-decoration: none">
-      <img src="{{ list.image.url }}" style="width: 180px; height: 150px;" alt=""> <br>
-      <span style="font-weight: bold;">{{ list.alias }}</span> <br>
-      계절: {{ list.type }} <br>
-      색상: {{ list.color }} <br>
+      <img src="{{ list.image.url }}" style="width: 180px; height: 150px;" alt=""> <br></br>
+      <span style="font-weight: bold;">{{ list.alias }}</span> <br></br>
+      <span class="clothesseason"> 계절: {{ list.type }} </span><br>
+      <span class="clothescolor"> 색상: {{ list.color }} </span><br>
       </a>
-  </p>
+    </p>
   </div>
-  
-  </div>
+</div>
 {% endfor %}
 
 

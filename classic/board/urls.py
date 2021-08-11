@@ -22,7 +22,7 @@ from .views import base_views, question_views, answer_views, comment_views, vote
 app_name = 'board'
 
 
-# views 항목이 많아서 views를 다음과 같이 구별해놓았습니다.
+# views 항목이 많아서 views를 다음과 같이 구별해 놓았습니다.
 urlpatterns = [
     # base_views.py
     path('', base_views.index, name='index'),

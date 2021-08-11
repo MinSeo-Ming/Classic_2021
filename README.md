@@ -13,7 +13,7 @@
 ## 1. manage.py가 있는 디렉토리에서 default 유저를 생성한다.
 
 ```python
-python manage.py createsupseruser 
+python manage.py createsuperuser 
 
 사용자 이름 (leave blank to use '여러분 환경'): default
 ```
